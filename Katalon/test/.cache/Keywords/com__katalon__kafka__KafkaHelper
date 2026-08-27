@@ -1,0 +1,80 @@
+{
+  "keywordFileContentHash": "606BA2BFE149E1BBBEC83EF3202516FA",
+  "keywordClasses": [
+    {
+      "name": "com.katalon.kafka.KafkaHelper",
+      "keywordMethods": [
+        {
+          "name": "sendMessage",
+          "parameters": [
+            {
+              "name": "topic",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "message",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\n     * Send message to Kafka topic\n     */"
+        },
+        {
+          "name": "sendJsonMessage",
+          "parameters": [
+            {
+              "name": "topic",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "message",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.util.Map",
+                "unresolvedClassName": "Map",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\n     * Send JSON message to Kafka topic\n     */"
+        },
+        {
+          "name": "testConnection",
+          "parameters": [],
+          "javadoc": "/**\n     * Test Kafka connection\n     */"
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

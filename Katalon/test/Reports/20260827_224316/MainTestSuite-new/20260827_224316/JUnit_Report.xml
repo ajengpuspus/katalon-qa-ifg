@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="MainTestSuite-new" time="5.147" tests="3" passed="3" failures="0" errors="0" incompleted="0" skipped="0">
+   <testsuite name="MainTestSuite-new" tests="3" passed="3" failures="0" errors="0" incompleted="0" skipped="0" time="5.147" timestamp="2026-08-27T15:43:28.089Z" hostname="Rafi Nizar - LAPTOP-PLEM1258" id="Test Suites/MainTestSuite-new" status="PASSED">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="D:\\_ajeng\\katalon\\Katalon\\test\\Reports\\20260827_224316\\MainTestSuite-new\\20260827_224316"/>
+         <property name="logFiles" value="D:\\_ajeng\\katalon\\Katalon\\test\\Reports\\20260827_224316\\MainTestSuite-new\\20260827_224316\\console0.log, D:\\_ajeng\\katalon\\Katalon\\test\\Reports\\20260827_224316\\MainTestSuite-new\\20260827_224316\\execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="executionBindingVariables" value="[]"/>
+         <property name="hostName" value="Rafi Nizar - LAPTOP-PLEM1258"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="11.5.0"/>
+         <property name="userFullName" value="rafi nizar"/>
+         <property name="hostAddress" value="192.168.0.14"/>
+         <property name="projectName" value="test"/>
+      </properties>
+      <testcase name="Test Cases/Kafka_Consumer/Kafka_Consumer_Test" time="3.124" classname="Test Cases/Kafka_Consumer/Kafka_Consumer_Test" status="PASSED" tag="Kafka, Consumer">
+         <system-out><![CDATA[27-08-2026T22:43:28 - [TEST_CASE][PASSED] - Test Cases/Kafka_Consumer/Kafka_Consumer_Test: Test Cases/Kafka_Consumer/Kafka_Consumer_Test
+
+27-08-2026T22:43:29 - [TEST_STEP][PASSED] - comment("Step 1: Creating Product via API (Triggers Kafka Event)"): Step 1: Creating Product via API (Triggers Kafka Event)
+
+27-08-2026T22:43:29 - [MESSAGE][INFO] - Step 1: Creating Product via API (Triggers Kafka Event)
+
+27-08-2026T22:43:29 - [TEST_STEP][PASSED] - body = JsonOutput.toJson(["name":"Kafka Test Product", "price":88888, "category":"KafkaTest", "stock":15]): null
+
+27-08-2026T22:43:29 - [TEST_STEP][PASSED] - request = findTestObject("REST API/Create Product"): null
+
+27-08-2026T22:43:30 - [TEST_STEP][PASSED] - request.setHttpBody(body): null
+
+27-08-2026T22:43:30 - [TEST_STEP][PASSED] - response = sendRequest(request): Send request successfully
+
+27-08-2026T22:43:30 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_0.har
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  --request POST \
+  --data '{"name":"Kafka Test Product","price":88888,"category":"KafkaTest","stock":15}' \
+  --header 'Content-Type: application/json' \
+  'http://localhost:3000/api/products'
+
+27-08-2026T22:43:31 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - assert response.getStatusCode() == 201: null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - result = JsonSlurper().parseText(response.getResponseText()): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - assert success == true: null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - comment("✅ Product created, Kafka event should be sent"): ✅ Product created, Kafka event should be sent
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - ✅ Product created, Kafka event should be sent
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - comment("Step 2: Verifying API is running"): Step 2: Verifying API is running
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - Step 2: Verifying API is running
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - healthResponse = sendRequest(findTestObject("REST API/Health Check")): Send request successfully
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Health-Check_1.har
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  'http://localhost:3000/api/health'
+
+27-08-2026T22:43:31 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - assert healthResponse.getStatusCode() == 200: null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - comment("✅ API is running"): ✅ API is running
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - ✅ API is running
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - comment("Step 3: Running End-to-End Flow"): Step 3: Running End-to-End Flow
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - Step 3: Running End-to-End Flow
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - e2eBody = JsonOutput.toJson(["name":"E2E Test Product", "price":77777, "category":"E2E", "stock":5]): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - e2eRequest = findTestObject("REST API/Create Product"): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - e2eRequest.setHttpBody(e2eBody): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - e2eResponse = sendRequest(e2eRequest): Send request successfully
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_2.har
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  --request POST \
+  --data '{"name":"E2E Test Product","price":77777,"category":"E2E","stock":5}' \
+  --header 'Content-Type: application/json' \
+  'http://localhost:3000/api/products'
+
+27-08-2026T22:43:31 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - assert e2eResponse.getStatusCode() == 201: null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - e2eResult = JsonSlurper().parseText(e2eResponse.getResponseText()): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - comment("✅ E2E: Product created with ID: " + id): ✅ E2E: Product created with ID: 33
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - ✅ E2E: Product created with ID: 33
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - verifyRequest = findTestObject("REST API/Get Product By ID"): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - verifyRequest.setRestUrl("http://localhost:3000/api/products/" + id): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - verifyResponse = sendRequest(verifyRequest): Send request successfully
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Get-Product-By-ID_3.har
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  'http://localhost:3000/api/products/33'
+
+27-08-2026T22:43:31 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - assert verifyResponse.getStatusCode() == 200: null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - comment("✅ E2E: Product verified"): ✅ E2E: Product verified
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - ✅ E2E: Product verified
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - updateBody = JsonOutput.toJson(["name":"E2E Updated Product", "price":88888, "category":"E2E_Updated"]): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - updateRequest = findTestObject("REST API/Update Product"): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - updateRequest.setRestUrl("http://localhost:3000/api/products/" + id): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - updateRequest.setHttpBody(updateBody): null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - updateResponse = sendRequest(updateRequest): Send request successfully
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Update-Product_4.har
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  --request PUT \
+  --data '{"name":"E2E Updated Product","price":88888,"category":"E2E_Updated"}' \
+  'http://localhost:3000/api/products/33'
+
+27-08-2026T22:43:31 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - assert updateResponse.getStatusCode() == 200: null
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - comment("✅ E2E: Product updated"): ✅ E2E: Product updated
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - ✅ E2E: Product updated
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - comment("✅ Kafka Consumer tests passed!"): ✅ Kafka Consumer tests passed!
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - ✅ Kafka Consumer tests passed!]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/REST_API_Consumer/Read_Products" time="0.863" classname="Test Cases/REST_API_Consumer/Read_Products" status="PASSED" tag="REST API, Consumer">
+         <system-out><![CDATA[27-08-2026T22:43:31 - [TEST_CASE][PASSED] - Test Cases/REST_API_Consumer/Read_Products: Test Cases/REST_API_Consumer/Read_Products
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - comment("Step 1: Getting All Products"): Step 1: Getting All Products
+
+27-08-2026T22:43:31 - [MESSAGE][INFO] - Step 1: Getting All Products
+
+27-08-2026T22:43:31 - [TEST_STEP][PASSED] - getAllResponse = sendRequest(findTestObject("REST API/Get All Products")): Send request successfully
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Get-All-Products_5.har
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  'http://localhost:3000/api/products'
+
+27-08-2026T22:43:32 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - assert getAllResponse.getStatusCode() == 200: null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - allProducts = JsonSlurper().parseText(getAllResponse.getResponseText()): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - assert success == true: null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - assert data.size() > 0: null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("✅ Found " + count + " products"): ✅ Found 33 products
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - ✅ Found 33 products
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("Step 2: Getting Product By ID"): Step 2: Getting Product By ID
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - Step 2: Getting Product By ID
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - productId = id: null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - getByIdRequest = findTestObject("REST API/Get Product By ID"): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - getByIdRequest.setRestUrl("http://localhost:3000/api/products/" + productId): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - getByIdResponse = sendRequest(getByIdRequest): Send request successfully
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Get-Product-By-ID_6.har
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  'http://localhost:3000/api/products/1'
+
+27-08-2026T22:43:32 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - assert getByIdResponse.getStatusCode() == 200: null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - product = JsonSlurper().parseText(getByIdResponse.getResponseText()): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - assert id == productId: null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("✅ Retrieved product: " + name): ✅ Retrieved product: Laptop ASUS
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - ✅ Retrieved product: Laptop ASUS
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("Step 3: Testing Non-Existent Product"): Step 3: Testing Non-Existent Product
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - Step 3: Testing Non-Existent Product
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - nonExistentRequest = findTestObject("REST API/Get Product By ID"): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - nonExistentRequest.setRestUrl("http://localhost:3000/api/products/99999"): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - nonExistentResponse = sendRequest(nonExistentRequest): Send request successfully
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Get-Product-By-ID_7.har
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  'http://localhost:3000/api/products/99999'
+
+27-08-2026T22:43:32 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - assert nonExistentResponse.getStatusCode() == 404: null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("✅ 404 returned correctly"): ✅ 404 returned correctly
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - ✅ 404 returned correctly
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("Step 4: Verifying Data Structure"): Step 4: Verifying Data Structure
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - Step 4: Verifying Data Structure
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - data.each({ java.lang.Object p -> ... }): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("✅ All products have valid data structure"): ✅ All products have valid data structure
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - ✅ All products have valid data structure
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("✅ REST API Consumer tests passed!"): ✅ REST API Consumer tests passed!
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - ✅ REST API Consumer tests passed!]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/REST_API_Producer/Create_Product" time="0.739" classname="Test Cases/REST_API_Producer/Create_Product" status="PASSED" tag="REST API,Producer">
+         <system-out><![CDATA[27-08-2026T22:43:32 - [TEST_CASE][PASSED] - Test Cases/REST_API_Producer/Create_Product: Test Cases/REST_API_Producer/Create_Product
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("Step 1: Checking API Health"): Step 1: Checking API Health
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - Step 1: Checking API Health
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - healthResponse = sendRequest(findTestObject("REST API/Health Check")): Send request successfully
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Health-Check_8.har
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  'http://localhost:3000/api/health'
+
+27-08-2026T22:43:32 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - assert healthResponse.getStatusCode() == 200 : "API is not running!": null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("Step 2: Creating New Product"): Step 2: Creating New Product
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - Step 2: Creating New Product
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - body = JsonOutput.toJson(["name":"Katalon Test Product", "price":75000, "category":"Electronics", "stock":25]): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - request = findTestObject("REST API/Create Product"): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - request.setHttpBody(body): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - response = sendRequest(request): Send request successfully
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_9.har
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  --request POST \
+  --data '{"name":"Katalon Test Product","price":75000,"category":"Electronics","stock":25}' \
+  --header 'Content-Type: application/json' \
+  'http://localhost:3000/api/products'
+
+27-08-2026T22:43:32 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("Response status: " + response.getStatusCode()): Response status: 201
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - Response status: 201
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("Response body: " + response.getResponseText()): Response body: {"success":true,"data":{"id":34,"name":"Katalon Test Product","price":75000,"category":"Electronics","stock":25,"created_at":"2026-08-27 15:43:32","updated_at":"2026-08-27 15:43:32"}}
+
+27-08-2026T22:43:32 - [MESSAGE][INFO] - Response body: {"success":true,"data":{"id":34,"name":"Katalon Test Product","price":75000,"category":"Electronics","stock":25,"created_at":"2026-08-27 15:43:32","updated_at":"2026-08-27 15:43:32"}}
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - assert response.getStatusCode() == 201 || response.getStatusCode() == 200: null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - result = JsonSlurper().parseText(response.getResponseText()): null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - assert success == true: null
+
+27-08-2026T22:43:32 - [TEST_STEP][PASSED] - comment("✅ Product created with ID: " + id): ✅ Product created with ID: 34
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - ✅ Product created with ID: 34
+
+27-08-2026T22:43:33 - [TEST_STEP][PASSED] - comment("Step 3: Creating Multiple Products"): Step 3: Creating Multiple Products
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - Step 3: Creating Multiple Products
+
+27-08-2026T22:43:33 - [TEST_STEP][PASSED] - products = [["name":"Product A", "price":100000, "category":"Fashion", "stock":50], ["name":"Product B", "price":200000, "category":"Books", "stock":30], ["name":"Product C", "price":300000, "category":"Food", "stock":100]]: null
+
+27-08-2026T22:43:33 - [TEST_STEP][PASSED] - products.each({ java.lang.Object product -> ... }): ✅ Created: Product C
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_10.har
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  --request POST \
+  --data '{"name":"Product A","price":100000,"category":"Fashion","stock":50}' \
+  --header 'Content-Type: application/json' \
+  'http://localhost:3000/api/products'
+
+27-08-2026T22:43:33 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - ✅ Created: Product A
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_11.har
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  --request POST \
+  --data '{"name":"Product B","price":200000,"category":"Books","stock":30}' \
+  --header 'Content-Type: application/json' \
+  'http://localhost:3000/api/products'
+
+27-08-2026T22:43:33 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - ✅ Created: Product B
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_12.har
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - cURL Command:
+curl \
+  --location \
+  --request POST \
+  --data '{"name":"Product C","price":300000,"category":"Food","stock":100}' \
+  --header 'Content-Type: application/json' \
+  'http://localhost:3000/api/products'
+
+27-08-2026T22:43:33 - [MESSAGE][PASSED] - Send request successfully
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - ✅ Created: Product C
+
+27-08-2026T22:43:33 - [TEST_STEP][PASSED] - comment("✅ REST API Producer tests passed!"): ✅ REST API Producer tests passed!
+
+27-08-2026T22:43:33 - [MESSAGE][INFO] - ✅ REST API Producer tests passed!]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[27-08-2026T22:43:28 - [TEST_SUITE][PASSED] - MainTestSuite-new: null]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

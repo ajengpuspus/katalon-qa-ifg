@@ -1,0 +1,14 @@
+{
+  "name": "Create Product",
+  "restUrl": "http://localhost:3000/api/products",
+  "httpMethod": "POST",
+  "headers": [
+    {
+      "name": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "parameters": [],
+  "body": "",
+  "contentType": "application/json"
+}

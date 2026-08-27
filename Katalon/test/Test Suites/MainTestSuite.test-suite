@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSuiteEntity>
+   <name>MainTestSuite</name>
+   <description>Main test suite for Kafka API Testing</description>
+   <testCaseCollection>
+      <testCaseId>REST_API_Producer/Create_Product</testCaseId>
+      <testCaseId>REST_API_Consumer/Read_Products</testCaseId>
+      <testCaseId>Kafka_Consumer/Kafka_Consumer_Test</testCaseId>
+   </testCaseCollection>
+   <executionProfile>default</executionProfile>
+</TestSuiteEntity>

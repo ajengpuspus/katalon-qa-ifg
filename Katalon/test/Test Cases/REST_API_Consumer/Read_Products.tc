@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Test case for reading products via REST API</description>
+   <name>Read_Products</name>
+   <tag>REST API, Consumer</tag>
+   <comment>Tests GET endpoints to read products</comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>b2c3d4e5-f6a7-8901-bcde-f12345678901</testCaseGuid>
+</TestCaseEntity>

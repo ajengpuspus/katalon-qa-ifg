@@ -1,0 +1,86 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+MainTestSuite-new,,,,27-08-2026 22:41:59,27-08-2026 22:42:04,4.334s,PASSED
+,,,,,,,
+Test Cases/Kafka_Consumer/Kafka_Consumer_Test,,Test case for Kafka consumer testing,"Kafka, Consumer",27-08-2026 22:42:00,27-08-2026 22:42:02,2.750s,PASSED
+"comment(""Step 1: Creating Product via API (Triggers Kafka Event)"")",,,,27-08-2026 22:42:01,27-08-2026 22:42:01,0.229s,PASSED
+"body = JsonOutput.toJson([""name"":""Kafka Test Product"", ""price"":88888, ""category"":""KafkaTest"", ""stock"":15])",,,,27-08-2026 22:42:01,27-08-2026 22:42:01,0.036s,PASSED
+"request = findTestObject(""REST API/Create Product"")",,,,27-08-2026 22:42:01,27-08-2026 22:42:01,0.095s,PASSED
+request.setHttpBody(body),,,,27-08-2026 22:42:01,27-08-2026 22:42:01,0.040s,PASSED
+response = sendRequest(request),,,,27-08-2026 22:42:01,27-08-2026 22:42:02,0.799s,PASSED
+assert response.getStatusCode() == 201,,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.017s,PASSED
+result = JsonSlurper().parseText(response.getResponseText()),,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.054s,PASSED
+assert success == true,,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.011s,PASSED
+"comment(""✅ Product created, Kafka event should be sent"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.011s,PASSED
+"comment(""Step 2: Verifying API is running"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.008s,PASSED
+"healthResponse = sendRequest(findTestObject(""REST API/Health Check""))",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.051s,PASSED
+assert healthResponse.getStatusCode() == 200,,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.004s,PASSED
+"comment(""✅ API is running"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.007s,PASSED
+"comment(""Step 3: Running End-to-End Flow"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.007s,PASSED
+"e2eBody = JsonOutput.toJson([""name"":""E2E Test Product"", ""price"":77777, ""category"":""E2E"", ""stock"":5])",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.003s,PASSED
+"e2eRequest = findTestObject(""REST API/Create Product"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.011s,PASSED
+e2eRequest.setHttpBody(e2eBody),,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.004s,PASSED
+e2eResponse = sendRequest(e2eRequest),,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.045s,PASSED
+assert e2eResponse.getStatusCode() == 201,,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.003s,PASSED
+e2eResult = JsonSlurper().parseText(e2eResponse.getResponseText()),,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.003s,PASSED
+"comment(""✅ E2E: Product created with ID: "" + id)",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.013s,PASSED
+"verifyRequest = findTestObject(""REST API/Get Product By ID"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.009s,PASSED
+"verifyRequest.setRestUrl(""http://localhost:3000/api/products/"" + id)",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.003s,PASSED
+verifyResponse = sendRequest(verifyRequest),,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.028s,PASSED
+assert verifyResponse.getStatusCode() == 200,,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.002s,PASSED
+"comment(""✅ E2E: Product verified"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.005s,PASSED
+"updateBody = JsonOutput.toJson([""name"":""E2E Updated Product"", ""price"":88888, ""category"":""E2E_Updated""])",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.003s,PASSED
+"updateRequest = findTestObject(""REST API/Update Product"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.012s,PASSED
+"updateRequest.setRestUrl(""http://localhost:3000/api/products/"" + id)",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.002s,PASSED
+updateRequest.setHttpBody(updateBody),,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.004s,PASSED
+updateResponse = sendRequest(updateRequest),,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.038s,PASSED
+assert updateResponse.getStatusCode() == 200,,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.004s,PASSED
+"comment(""✅ E2E: Product updated"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.006s,PASSED
+"comment(""✅ Kafka Consumer tests passed!"")",,,,27-08-2026 22:42:02,27-08-2026 22:42:02,0.007s,PASSED
+,,,,,,,
+Test Cases/REST_API_Consumer/Read_Products,,Test case for reading products via REST API,"REST API, Consumer",27-08-2026 22:42:02,27-08-2026 22:42:03,0.488s,PASSED
+"comment(""Step 1: Getting All Products"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.014s,PASSED
+"getAllResponse = sendRequest(findTestObject(""REST API/Get All Products""))",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.050s,PASSED
+assert getAllResponse.getStatusCode() == 200,,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.005s,PASSED
+allProducts = JsonSlurper().parseText(getAllResponse.getResponseText()),,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.006s,PASSED
+assert success == true,,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.001s,PASSED
+assert data.size() > 0,,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.004s,PASSED
+"comment(""✅ Found "" + count + "" products"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.008s,PASSED
+"comment(""Step 2: Getting Product By ID"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.005s,PASSED
+productId = id,,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.022s,PASSED
+"getByIdRequest = findTestObject(""REST API/Get Product By ID"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.010s,PASSED
+"getByIdRequest.setRestUrl(""http://localhost:3000/api/products/"" + productId)",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.006s,PASSED
+getByIdResponse = sendRequest(getByIdRequest),,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.028s,PASSED
+assert getByIdResponse.getStatusCode() == 200,,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.006s,PASSED
+product = JsonSlurper().parseText(getByIdResponse.getResponseText()),,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.005s,PASSED
+assert id == productId,,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.002s,PASSED
+"comment(""✅ Retrieved product: "" + name)",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.008s,PASSED
+"comment(""Step 3: Testing Non-Existent Product"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.005s,PASSED
+"nonExistentRequest = findTestObject(""REST API/Get Product By ID"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.012s,PASSED
+"nonExistentRequest.setRestUrl(""http://localhost:3000/api/products/99999"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.003s,PASSED
+nonExistentResponse = sendRequest(nonExistentRequest),,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.035s,PASSED
+assert nonExistentResponse.getStatusCode() == 404,,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.002s,PASSED
+"comment(""✅ 404 returned correctly"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.008s,PASSED
+"comment(""Step 4: Verifying Data Structure"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.006s,PASSED
+data.each({ java.lang.Object p -> ... }),,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.011s,PASSED
+"comment(""✅ All products have valid data structure"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.006s,PASSED
+"comment(""✅ REST API Consumer tests passed!"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.006s,PASSED
+,,,,,,,
+Test Cases/REST_API_Producer/Create_Product,,Test case for creating products via REST API,"REST API,Producer",27-08-2026 22:42:03,27-08-2026 22:42:04,0.679s,PASSED
+"comment(""Step 1: Checking API Health"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.013s,PASSED
+"healthResponse = sendRequest(findTestObject(""REST API/Health Check""))",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.054s,PASSED
+"assert healthResponse.getStatusCode() == 200 : ""API is not running!""",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.004s,PASSED
+"comment(""Step 2: Creating New Product"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.011s,PASSED
+"body = JsonOutput.toJson([""name"":""Katalon Test Product"", ""price"":75000, ""category"":""Electronics"", ""stock"":25])",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.003s,PASSED
+"request = findTestObject(""REST API/Create Product"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.008s,PASSED
+request.setHttpBody(body),,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.003s,PASSED
+response = sendRequest(request),,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.045s,PASSED
+"comment(""Response status: "" + response.getStatusCode())",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.007s,PASSED
+"comment(""Response body: "" + response.getResponseText())",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.005s,PASSED
+assert response.getStatusCode() == 201 || response.getStatusCode() == 200,,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.002s,PASSED
+result = JsonSlurper().parseText(response.getResponseText()),,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.003s,PASSED
+assert success == true,,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.002s,PASSED
+"comment(""✅ Product created with ID: "" + id)",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.008s,PASSED
+"comment(""Step 3: Creating Multiple Products"")",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.006s,PASSED
+"products = [[""name"":""Product A"", ""price"":100000, ""category"":""Fashion"", ""stock"":50], [""name"":""Product B"", ""price"":200000, ""category"":""Books"", ""stock"":30], [""name"":""Product C"", ""price"":300000, ""category"":""Food"", ""stock"":100]]",,,,27-08-2026 22:42:03,27-08-2026 22:42:03,0.002s,PASSED
+products.each({ java.lang.Object product -> ... }),,,,27-08-2026 22:42:03,27-08-2026 22:42:04,0.170s,PASSED
+"comment(""✅ REST API Producer tests passed!"")",,,,27-08-2026 22:42:04,27-08-2026 22:42:04,0.003s,PASSED

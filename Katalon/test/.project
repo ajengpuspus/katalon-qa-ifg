@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>D%%_ajeng%katalon%Katalon%test%test.prj</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.groovy.core.groovyNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>kat-10753207763282416135.groovy</name>
+			<type>1</type>
+			<location>C:/Users/RAFINI~1/AppData/Local/Temp/Katalon/Web Services/kat-10753207763282416135.groovy</location>
+		</link>
+		<link>
+			<name>kat-14984631966242991458.groovy</name>
+			<type>1</type>
+			<location>C:/Users/RAFINI~1/AppData/Local/Temp/Katalon/Web Services/kat-14984631966242991458.groovy</location>
+		</link>
+		<link>
+			<name>kat-3635337239191508390.groovy</name>
+			<type>1</type>
+			<location>C:/Users/RAFINI~1/AppData/Local/Temp/Katalon/Web Services/kat-3635337239191508390.groovy</location>
+		</link>
+		<link>
+			<name>kat-7688616571507837572.groovy</name>
+			<type>1</type>
+			<location>C:/Users/RAFINI~1/AppData/Local/Temp/Katalon/Web Services/kat-7688616571507837572.groovy</location>
+		</link>
+		<link>
+			<name>kat-8069719273061393508.groovy</name>
+			<type>1</type>
+			<location>C:/Users/RAFINI~1/AppData/Local/Temp/Katalon/Web Services/kat-8069719273061393508.groovy</location>
+		</link>
+	</linkedResources>
+</projectDescription>

@@ -1,0 +1,9 @@
+{
+  "name": "Get All Products",
+  "restUrl": "http://localhost:3000/api/products",
+  "httpMethod": "GET",
+  "headers": [],
+  "parameters": [],
+  "body": "",
+  "contentType": "application/json"
+}

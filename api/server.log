@@ -1,0 +1,9 @@
+{"level":"WARN","timestamp":"2026-08-27T14:39:37.567Z","logger":"kafkajs","message":"KafkaJS v2.0.0 switched default partitioner. To retain the same partitioning behavior as in previous versions, create the producer with the option \"createPartitioner: Partitioners.LegacyPartitioner\". See the migration guide at https://kafka.js.org/docs/migration-guide-v2.0.0#producer-new-default-partitioner for details. Silence this warning by setting the environment variable \"KAFKAJS_NO_PARTITIONER_WARNING=1\""}
+🚀 REST API Server running on http://localhost:3000
+📋 API Endpoints:
+   GET    http://localhost:3000/api/products
+   GET    http://localhost:3000/api/products/:id
+   POST   http://localhost:3000/api/products
+   PUT    http://localhost:3000/api/products/:id
+   DELETE http://localhost:3000/api/products/:id
+   GET    http://localhost:3000/api/health

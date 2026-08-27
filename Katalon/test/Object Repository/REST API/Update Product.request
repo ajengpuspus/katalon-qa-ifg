@@ -1,0 +1,14 @@
+{
+  "name": "Update Product",
+  "restUrl": "http://localhost:3000/api/products/1",
+  "httpMethod": "PUT",
+  "headers": [
+    {
+      "name": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "parameters": [],
+  "body": "",
+  "contentType": "application/json"
+}

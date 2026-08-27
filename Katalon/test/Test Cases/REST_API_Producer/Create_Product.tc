@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Test case for creating products via REST API</description>
+   <name>Create_Product</name>
+   <tag>REST API,Producer</tag>
+   <comment>Tests POST endpoints to create products</comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>a1b2c3d4-e5f6-7890-abcd-ef1234567890</testCaseGuid>
+</TestCaseEntity>

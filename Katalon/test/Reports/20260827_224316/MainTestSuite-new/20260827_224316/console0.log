@@ -1,0 +1,187 @@
+2026-08-27 22:43:26.206 INFO  c.k.k.c.l.logback.LogbackConfigurator    - Logback default configuration initialized from: C:\Users\Rafi Nizar\.katalon\packages\KS-11.5.0\configuration\org.eclipse.osgi\165\0\.cp\resources\logback\logback-execution.xml
+2026-08-27 22:43:26.229 INFO  c.k.k.c.l.logback.LogbackConfigurator    - Logback custom configuration initialized from: D:\_ajeng\katalon\Katalon\test\Include\config\log.properties
+2026-08-27 22:43:27.992 INFO  c.k.katalon.core.main.TestSuiteExecutor  - START Test Suites/MainTestSuite-new
+2026-08-27 22:43:28.137 INFO  c.k.katalon.core.main.TestSuiteExecutor  - userFullName = rafi nizar
+2026-08-27 22:43:28.139 INFO  c.k.katalon.core.main.TestSuiteExecutor  - projectName = test
+2026-08-27 22:43:28.141 INFO  c.k.katalon.core.main.TestSuiteExecutor  - hostName = Rafi Nizar - LAPTOP-PLEM1258
+2026-08-27 22:43:28.144 INFO  c.k.katalon.core.main.TestSuiteExecutor  - os = Windows 10 64bit
+2026-08-27 22:43:28.146 INFO  c.k.katalon.core.main.TestSuiteExecutor  - hostAddress = 192.168.0.14
+2026-08-27 22:43:28.149 INFO  c.k.katalon.core.main.TestSuiteExecutor  - katalonVersion = 11.5.0
+2026-08-27 22:43:28.493 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2026-08-27 22:43:28.493 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/Kafka_Consumer/Kafka_Consumer_Test
+2026-08-27 22:43:29.643 DEBUG testcase.Kafka_Consumer_Test             - 1: comment("Step 1: Creating Product via API (Triggers Kafka Event)")
+2026-08-27 22:43:29.853 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 1: Creating Product via API (Triggers Kafka Event)
+2026-08-27 22:43:29.858 DEBUG testcase.Kafka_Consumer_Test             - 2: body = JsonOutput.toJson(["name":"Kafka Test Product", "price":88888, "category":"KafkaTest", "stock":15])
+2026-08-27 22:43:29.924 DEBUG testcase.Kafka_Consumer_Test             - 3: request = findTestObject("REST API/Create Product")
+2026-08-27 22:43:30.126 DEBUG testcase.Kafka_Consumer_Test             - 4: request.setHttpBody(body)
+2026-08-27 22:43:30.166 DEBUG testcase.Kafka_Consumer_Test             - 5: response = sendRequest(request)
+2026-08-27 22:43:30.976 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_0.har
+2026-08-27 22:43:31.005 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\r\n  --request POST \\r\n  --data '{"name":"Kafka Test Product","price":88888,"category":"KafkaTest","stock":15}' \\r\n  --header 'Content-Type: application/json' \\n  'http://localhost:3000/api/products'
+2026-08-27 22:43:31.095 DEBUG testcase.Kafka_Consumer_Test             - 6: assert response.getStatusCode() == 201
+2026-08-27 22:43:31.118 DEBUG testcase.Kafka_Consumer_Test             - 7: result = JsonSlurper().parseText(response.getResponseText())
+2026-08-27 22:43:31.183 DEBUG testcase.Kafka_Consumer_Test             - 8: assert success == true
+2026-08-27 22:43:31.206 DEBUG testcase.Kafka_Consumer_Test             - 9: comment("✅ Product created, Kafka event should be sent")
+2026-08-27 22:43:31.214 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ Product created, Kafka event should be sent
+2026-08-27 22:43:31.216 DEBUG testcase.Kafka_Consumer_Test             - 10: comment("Step 2: Verifying API is running")
+2026-08-27 22:43:31.226 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 2: Verifying API is running
+2026-08-27 22:43:31.231 DEBUG testcase.Kafka_Consumer_Test             - 11: healthResponse = sendRequest(findTestObject("REST API/Health Check"))
+2026-08-27 22:43:31.281 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Health-Check_1.har
+2026-08-27 22:43:31.283 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\n  'http://localhost:3000/api/health'
+2026-08-27 22:43:31.294 DEBUG testcase.Kafka_Consumer_Test             - 12: assert healthResponse.getStatusCode() == 200
+2026-08-27 22:43:31.300 DEBUG testcase.Kafka_Consumer_Test             - 13: comment("✅ API is running")
+2026-08-27 22:43:31.307 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ API is running
+2026-08-27 22:43:31.312 DEBUG testcase.Kafka_Consumer_Test             - 14: comment("Step 3: Running End-to-End Flow")
+2026-08-27 22:43:31.318 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 3: Running End-to-End Flow
+2026-08-27 22:43:31.320 DEBUG testcase.Kafka_Consumer_Test             - 15: e2eBody = JsonOutput.toJson(["name":"E2E Test Product", "price":77777, "category":"E2E", "stock":5])
+2026-08-27 22:43:31.326 DEBUG testcase.Kafka_Consumer_Test             - 16: e2eRequest = findTestObject("REST API/Create Product")
+2026-08-27 22:43:31.339 DEBUG testcase.Kafka_Consumer_Test             - 17: e2eRequest.setHttpBody(e2eBody)
+2026-08-27 22:43:31.344 DEBUG testcase.Kafka_Consumer_Test             - 18: e2eResponse = sendRequest(e2eRequest)
+2026-08-27 22:43:31.382 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_2.har
+2026-08-27 22:43:31.384 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\r\n  --request POST \\r\n  --data '{"name":"E2E Test Product","price":77777,"category":"E2E","stock":5}' \\r\n  --header 'Content-Type: application/json' \\n  'http://localhost:3000/api/products'
+2026-08-27 22:43:31.390 DEBUG testcase.Kafka_Consumer_Test             - 19: assert e2eResponse.getStatusCode() == 201
+2026-08-27 22:43:31.397 DEBUG testcase.Kafka_Consumer_Test             - 20: e2eResult = JsonSlurper().parseText(e2eResponse.getResponseText())
+2026-08-27 22:43:31.405 DEBUG testcase.Kafka_Consumer_Test             - 21: comment("✅ E2E: Product created with ID: " + id)
+2026-08-27 22:43:31.419 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ E2E: Product created with ID: 33
+2026-08-27 22:43:31.422 DEBUG testcase.Kafka_Consumer_Test             - 22: verifyRequest = findTestObject("REST API/Get Product By ID")
+2026-08-27 22:43:31.436 DEBUG testcase.Kafka_Consumer_Test             - 23: verifyRequest.setRestUrl("http://localhost:3000/api/products/" + id)
+2026-08-27 22:43:31.443 DEBUG testcase.Kafka_Consumer_Test             - 24: verifyResponse = sendRequest(verifyRequest)
+2026-08-27 22:43:31.477 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Get-Product-By-ID_3.har
+2026-08-27 22:43:31.479 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\n  'http://localhost:3000/api/products/33'
+2026-08-27 22:43:31.486 DEBUG testcase.Kafka_Consumer_Test             - 25: assert verifyResponse.getStatusCode() == 200
+2026-08-27 22:43:31.492 DEBUG testcase.Kafka_Consumer_Test             - 26: comment("✅ E2E: Product verified")
+2026-08-27 22:43:31.497 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ E2E: Product verified
+2026-08-27 22:43:31.500 DEBUG testcase.Kafka_Consumer_Test             - 27: updateBody = JsonOutput.toJson(["name":"E2E Updated Product", "price":88888, "category":"E2E_Updated"])
+2026-08-27 22:43:31.095 DEBUG testcase.Kafka_Consumer_Test             - 6: assert response.getStatusCode() == 201
+2026-08-27 22:43:31.118 DEBUG testcase.Kafka_Consumer_Test             - 7: result = JsonSlurper().parseText(response.getResponseText())
+2026-08-27 22:43:31.183 DEBUG testcase.Kafka_Consumer_Test             - 8: assert success == true
+2026-08-27 22:43:31.206 DEBUG testcase.Kafka_Consumer_Test             - 9: comment("✅ Product created, Kafka event should be sent")
+2026-08-27 22:43:31.214 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ Product created, Kafka event should be sent
+2026-08-27 22:43:31.216 DEBUG testcase.Kafka_Consumer_Test             - 10: comment("Step 2: Verifying API is running")
+2026-08-27 22:43:31.226 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 2: Verifying API is running
+2026-08-27 22:43:31.231 DEBUG testcase.Kafka_Consumer_Test             - 11: healthResponse = sendRequest(findTestObject("REST API/Health Check"))
+2026-08-27 22:43:31.281 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Health-Check_1.har
+2026-08-27 22:43:31.283 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\n  'http://localhost:3000/api/health'
+2026-08-27 22:43:31.294 DEBUG testcase.Kafka_Consumer_Test             - 12: assert healthResponse.getStatusCode() == 200
+2026-08-27 22:43:31.300 DEBUG testcase.Kafka_Consumer_Test             - 13: comment("✅ API is running")
+2026-08-27 22:43:31.307 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ API is running
+2026-08-27 22:43:31.312 DEBUG testcase.Kafka_Consumer_Test             - 14: comment("Step 3: Running End-to-End Flow")
+2026-08-27 22:43:31.318 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 3: Running End-to-End Flow
+2026-08-27 22:43:31.320 DEBUG testcase.Kafka_Consumer_Test             - 15: e2eBody = JsonOutput.toJson(["name":"E2E Test Product", "price":77777, "category":"E2E", "stock":5])
+2026-08-27 22:43:31.326 DEBUG testcase.Kafka_Consumer_Test             - 16: e2eRequest = findTestObject("REST API/Create Product")
+2026-08-27 22:43:31.339 DEBUG testcase.Kafka_Consumer_Test             - 17: e2eRequest.setHttpBody(e2eBody)
+2026-08-27 22:43:31.344 DEBUG testcase.Kafka_Consumer_Test             - 18: e2eResponse = sendRequest(e2eRequest)
+2026-08-27 22:43:31.382 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_2.har
+2026-08-27 22:43:31.384 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\r\n  --request POST \\r\n  --data '{"name":"E2E Test Product","price":77777,"category":"E2E","stock":5}' \\r\n  --header 'Content-Type: application/json' \\n  'http://localhost:3000/api/products'
+2026-08-27 22:43:31.390 DEBUG testcase.Kafka_Consumer_Test             - 19: assert e2eResponse.getStatusCode() == 201
+2026-08-27 22:43:31.397 DEBUG testcase.Kafka_Consumer_Test             - 20: e2eResult = JsonSlurper().parseText(e2eResponse.getResponseText())
+2026-08-27 22:43:31.405 DEBUG testcase.Kafka_Consumer_Test             - 21: comment("✅ E2E: Product created with ID: " + id)
+2026-08-27 22:43:31.419 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ E2E: Product created with ID: 33
+2026-08-27 22:43:31.422 DEBUG testcase.Kafka_Consumer_Test             - 22: verifyRequest = findTestObject("REST API/Get Product By ID")
+2026-08-27 22:43:31.436 DEBUG testcase.Kafka_Consumer_Test             - 23: verifyRequest.setRestUrl("http://localhost:3000/api/products/" + id)
+2026-08-27 22:43:31.443 DEBUG testcase.Kafka_Consumer_Test             - 24: verifyResponse = sendRequest(verifyRequest)
+2026-08-27 22:43:31.477 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Get-Product-By-ID_3.har
+2026-08-27 22:43:31.479 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\n  'http://localhost:3000/api/products/33'
+2026-08-27 22:43:31.486 DEBUG testcase.Kafka_Consumer_Test             - 25: assert verifyResponse.getStatusCode() == 200
+2026-08-27 22:43:31.492 DEBUG testcase.Kafka_Consumer_Test             - 26: comment("✅ E2E: Product verified")
+2026-08-27 22:43:31.497 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ E2E: Product verified
+2026-08-27 22:43:31.500 DEBUG testcase.Kafka_Consumer_Test             - 27: updateBody = JsonOutput.toJson(["name":"E2E Updated Product", "price":88888, "category":"E2E_Updated"])
+2026-08-27 22:43:31.507 DEBUG testcase.Kafka_Consumer_Test             - 28: updateRequest = findTestObject("REST API/Update Product")
+2026-08-27 22:43:31.520 DEBUG testcase.Kafka_Consumer_Test             - 29: updateRequest.setRestUrl("http://localhost:3000/api/products/" + id)
+2026-08-27 22:43:31.526 DEBUG testcase.Kafka_Consumer_Test             - 30: updateRequest.setHttpBody(updateBody)
+2026-08-27 22:43:31.530 DEBUG testcase.Kafka_Consumer_Test             - 31: updateResponse = sendRequest(updateRequest)
+2026-08-27 22:43:31.579 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Update-Product_4.har
+2026-08-27 22:43:31.582 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\r\n  --request PUT \\r\n  --data '{"name":"E2E Updated Product","price":88888,"category":"E2E_Updated"}' \\n  'http://localhost:3000/api/products/33'
+2026-08-27 22:43:31.589 DEBUG testcase.Kafka_Consumer_Test             - 32: assert updateResponse.getStatusCode() == 200
+2026-08-27 22:43:31.594 DEBUG testcase.Kafka_Consumer_Test             - 33: comment("✅ E2E: Product updated")
+2026-08-27 22:43:31.602 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ E2E: Product updated
+2026-08-27 22:43:31.606 DEBUG testcase.Kafka_Consumer_Test             - 34: comment("✅ Kafka Consumer tests passed!")
+2026-08-27 22:43:31.613 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ Kafka Consumer tests passed!
+2026-08-27 22:43:31.618 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/Kafka_Consumer/Kafka_Consumer_Test
+2026-08-27 22:43:31.628 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2026-08-27 22:43:31.629 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/REST_API_Consumer/Read_Products
+2026-08-27 22:43:31.957 DEBUG testcase.Read_Products                   - 1: comment("Step 1: Getting All Products")
+2026-08-27 22:43:31.963 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 1: Getting All Products
+2026-08-27 22:43:31.965 DEBUG testcase.Read_Products                   - 2: getAllResponse = sendRequest(findTestObject("REST API/Get All Products"))
+2026-08-27 22:43:32.189 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Get-All-Products_5.har
+2026-08-27 22:43:32.193 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\n  'http://localhost:3000/api/products'
+2026-08-27 22:43:32.201 DEBUG testcase.Read_Products                   - 3: assert getAllResponse.getStatusCode() == 200
+2026-08-27 22:43:32.207 DEBUG testcase.Read_Products                   - 4: allProducts = JsonSlurper().parseText(getAllResponse.getResponseText())
+2026-08-27 22:43:32.215 DEBUG testcase.Read_Products                   - 5: assert success == true
+2026-08-27 22:43:32.221 DEBUG testcase.Read_Products                   - 6: assert data.size() > 0
+2026-08-27 22:43:32.234 DEBUG testcase.Read_Products                   - 7: comment("✅ Found " + count + " products")
+2026-08-27 22:43:32.264 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ Found 33 products
+2026-08-27 22:43:32.268 DEBUG testcase.Read_Products                   - 8: comment("Step 2: Getting Product By ID")
+2026-08-27 22:43:32.273 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 2: Getting Product By ID
+2026-08-27 22:43:32.277 DEBUG testcase.Read_Products                   - 9: productId = id
+2026-08-27 22:43:32.299 DEBUG testcase.Read_Products                   - 10: getByIdRequest = findTestObject("REST API/Get Product By ID")
+2026-08-27 22:43:32.310 DEBUG testcase.Read_Products                   - 11: getByIdRequest.setRestUrl("http://localhost:3000/api/products/" + productId)
+2026-08-27 22:43:32.314 DEBUG testcase.Read_Products                   - 12: getByIdResponse = sendRequest(getByIdRequest)
+2026-08-27 22:43:32.339 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Get-Product-By-ID_6.har
+2026-08-27 22:43:32.341 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\n  'http://localhost:3000/api/products/1'
+2026-08-27 22:43:32.347 DEBUG testcase.Read_Products                   - 13: assert getByIdResponse.getStatusCode() == 200
+2026-08-27 22:43:32.350 DEBUG testcase.Read_Products                   - 14: product = JsonSlurper().parseText(getByIdResponse.getResponseText())
+2026-08-27 22:43:32.356 DEBUG testcase.Read_Products                   - 15: assert id == productId
+2026-08-27 22:43:32.359 DEBUG testcase.Read_Products                   - 16: comment("✅ Retrieved product: " + name)
+2026-08-27 22:43:32.366 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ Retrieved product: Laptop ASUS
+2026-08-27 22:43:32.370 DEBUG testcase.Read_Products                   - 17: comment("Step 3: Testing Non-Existent Product")
+2026-08-27 22:43:32.376 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 3: Testing Non-Existent Product
+2026-08-27 22:43:32.380 DEBUG testcase.Read_Products                   - 18: nonExistentRequest = findTestObject("REST API/Get Product By ID")
+2026-08-27 22:43:32.389 DEBUG testcase.Read_Products                   - 19: nonExistentRequest.setRestUrl("http://localhost:3000/api/products/99999")
+2026-08-27 22:43:32.394 DEBUG testcase.Read_Products                   - 20: nonExistentResponse = sendRequest(nonExistentRequest)
+2026-08-27 22:43:32.429 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Get-Product-By-ID_7.har
+2026-08-27 22:43:32.431 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\n  'http://localhost:3000/api/products/99999'
+2026-08-27 22:43:32.438 DEBUG testcase.Read_Products                   - 21: assert nonExistentResponse.getStatusCode() == 404
+2026-08-27 22:43:32.443 DEBUG testcase.Read_Products                   - 22: comment("✅ 404 returned correctly")
+2026-08-27 22:43:32.449 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ 404 returned correctly
+2026-08-27 22:43:32.453 DEBUG testcase.Read_Products                   - 23: comment("Step 4: Verifying Data Structure")
+2026-08-27 22:43:32.459 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 4: Verifying Data Structure
+2026-08-27 22:43:32.461 DEBUG testcase.Read_Products                   - 24: data.each({ java.lang.Object p -> ... })
+2026-08-27 22:43:32.475 DEBUG testcase.Read_Products                   - 25: comment("✅ All products have valid data structure")
+2026-08-27 22:43:32.481 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ All products have valid data structure
+2026-08-27 22:43:32.483 DEBUG testcase.Read_Products                   - 26: comment("✅ REST API Consumer tests passed!")
+2026-08-27 22:43:32.487 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ REST API Consumer tests passed!
+2026-08-27 22:43:32.492 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/REST_API_Consumer/Read_Products
+2026-08-27 22:43:32.497 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2026-08-27 22:43:32.497 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/REST_API_Producer/Create_Product
+2026-08-27 22:43:32.768 DEBUG testcase.Create_Product                  - 1: comment("Step 1: Checking API Health")
+2026-08-27 22:43:32.772 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 1: Checking API Health
+2026-08-27 22:43:32.778 DEBUG testcase.Create_Product                  - 2: healthResponse = sendRequest(findTestObject("REST API/Health Check"))
+2026-08-27 22:43:32.832 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Health-Check_8.har
+2026-08-27 22:43:32.835 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\n  'http://localhost:3000/api/health'
+2026-08-27 22:43:32.842 DEBUG testcase.Create_Product                  - 3: assert healthResponse.getStatusCode() == 200 : "API is not running!"
+2026-08-27 22:43:32.849 DEBUG testcase.Create_Product                  - 4: comment("Step 2: Creating New Product")
+2026-08-27 22:43:32.861 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 2: Creating New Product
+2026-08-27 22:43:32.863 DEBUG testcase.Create_Product                  - 5: body = JsonOutput.toJson(["name":"Katalon Test Product", "price":75000, "category":"Electronics", "stock":25])
+2026-08-27 22:43:32.868 DEBUG testcase.Create_Product                  - 6: request = findTestObject("REST API/Create Product")
+2026-08-27 22:43:32.888 DEBUG testcase.Create_Product                  - 7: request.setHttpBody(body)
+2026-08-27 22:43:32.897 DEBUG testcase.Create_Product                  - 8: response = sendRequest(request)
+2026-08-27 22:43:32.950 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_9.har
+2026-08-27 22:43:32.953 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\r\n  --request POST \\r\n  --data '{"name":"Katalon Test Product","price":75000,"category":"Electronics","stock":25}' \\r\n  --header 'Content-Type: application/json' \\n  'http://localhost:3000/api/products'
+2026-08-27 22:43:32.961 DEBUG testcase.Create_Product                  - 9: comment("Response status: " + response.getStatusCode())
+2026-08-27 22:43:32.968 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Response status: 201
+2026-08-27 22:43:32.971 DEBUG testcase.Create_Product                  - 10: comment("Response body: " + response.getResponseText())
+2026-08-27 22:43:32.977 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Response body: {"success":true,"data":{"id":34,"name":"Katalon Test Product","price":75000,"category":"Electronics","stock":25,"created_at":"2026-08-27 15:43:32","updated_at":"2026-08-27 15:43:32"}}
+2026-08-27 22:43:32.979 DEBUG testcase.Create_Product                  - 11: assert response.getStatusCode() == 201 || response.getStatusCode() == 200
+2026-08-27 22:43:32.984 DEBUG testcase.Create_Product                  - 12: result = JsonSlurper().parseText(response.getResponseText())
+2026-08-27 22:43:32.987 DEBUG testcase.Create_Product                  - 13: assert success == true
+2026-08-27 22:43:32.994 DEBUG testcase.Create_Product                  - 14: comment("✅ Product created with ID: " + id)
+2026-08-27 22:43:33.001 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ Product created with ID: 34
+2026-08-27 22:43:33.005 DEBUG testcase.Create_Product                  - 15: comment("Step 3: Creating Multiple Products")
+2026-08-27 22:43:33.011 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - Step 3: Creating Multiple Products
+2026-08-27 22:43:33.013 DEBUG testcase.Create_Product                  - 16: products = [["name":"Product A", "price":100000, "category":"Fashion", "stock":50], ["name":"Product B", "price":200000, "category":"Books", "stock":30], ["name":"Product C", "price":300000, "category":"Food", "stock":100]]
+2026-08-27 22:43:33.018 DEBUG testcase.Create_Product                  - 17: products.each({ java.lang.Object product -> ... })
+2026-08-27 22:43:33.070 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_10.har
+2026-08-27 22:43:33.071 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\r\n  --request POST \\r\n  --data '{"name":"Product A","price":100000,"category":"Fashion","stock":50}' \\r\n  --header 'Content-Type: application/json' \\n  'http://localhost:3000/api/products'
+2026-08-27 22:43:33.094 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ Created: Product A
+2026-08-27 22:43:33.154 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_11.har
+2026-08-27 22:43:33.157 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\r\n  --request POST \\r\n  --data '{"name":"Product B","price":200000,"category":"Books","stock":30}' \\r\n  --header 'Content-Type: application/json' \\n  'http://localhost:3000/api/products'
+2026-08-27 22:43:33.166 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ Created: Product B
+2026-08-27 22:43:33.212 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: D:\_ajeng\katalon\Katalon\test\Reports\20260827_224316\MainTestSuite-new\20260827_224316\requests\main\Create-Product_12.har
+2026-08-27 22:43:33.215 INFO  c.k.k.core.webservice.common.HarLogger   - cURL Command:\ncurl \\r\n  --location \\r\n  --request POST \\r\n  --data '{"name":"Product C","price":300000,"category":"Food","stock":100}' \\r\n  --header 'Content-Type: application/json' \\n  'http://localhost:3000/api/products'
+2026-08-27 22:43:33.222 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ Created: Product C
+2026-08-27 22:43:33.224 DEBUG testcase.Create_Product                  - 18: comment("✅ REST API Producer tests passed!")
+2026-08-27 22:43:33.231 INFO  c.k.k.c.keyword.builtin.CommentKeyword   - ✅ REST API Producer tests passed!
+2026-08-27 22:43:33.235 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/REST_API_Producer/Create_Product
+2026-08-27 22:43:33.392 INFO  c.k.katalon.core.main.TestSuiteExecutor  - --------------------
+2026-08-27 22:43:33.392 INFO  c.k.katalon.core.main.TestSuiteExecutor  - END Test Suites/MainTestSuite-new
+2026-08-27 22:43:33.392 INFO  c.k.katalon.core.main.TestSuiteExecutor  - ====================

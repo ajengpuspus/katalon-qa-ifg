@@ -1,0 +1,68 @@
+[
+  {
+    "event": "PRODUCT_CREATED",
+    "data": {
+      "id": 1,
+      "name": "Test Product 1",
+      "price": 10000,
+      "category": "Test",
+      "stock": 10
+    },
+    "timestamp": "2026-08-27T14:41:01.310Z"
+  },
+  {
+    "event": "PRODUCT_CREATED",
+    "data": {
+      "id": 2,
+      "name": "Test Product 2",
+      "price": 20000,
+      "category": "Test",
+      "stock": 10
+    },
+    "timestamp": "2026-08-27T14:41:02.518Z"
+  },
+  {
+    "event": "PRODUCT_CREATED",
+    "data": {
+      "id": 3,
+      "name": "Test Product 3",
+      "price": 30000,
+      "category": "Test",
+      "stock": 10
+    },
+    "timestamp": "2026-08-27T14:41:02.525Z"
+  },
+  {
+    "event": "PRODUCT_CREATED",
+    "data": {
+      "id": 1,
+      "name": "Test Product 1",
+      "price": 10000,
+      "category": "Test",
+      "stock": 10
+    },
+    "timestamp": "2026-08-27T14:41:46.756Z"
+  },
+  {
+    "event": "PRODUCT_CREATED",
+    "data": {
+      "id": 2,
+      "name": "Test Product 2",
+      "price": 20000,
+      "category": "Test",
+      "stock": 10
+    },
+    "timestamp": "2026-08-27T14:41:46.861Z"
+  },
+  {
+    "event": "PRODUCT_CREATED",
+    "data": {
+      "id": 3,
+      "name": "Test Product 3",
+      "price": 30000,
+      "category": "Test",
+      "stock": 10
+    },
+    "timestamp": "2026-08-27T14:41:46.866Z"
+  }
+]
