@@ -1,74 +1,67 @@
 # Katalon Kafka API Testing Project
 
-A complete testing project demonstrating REST API and Kafka integration testing using Katalon Studio.
+Technical test project: REST API testing + Kafka consumer testing using Katalon Studio.
 
 ## Project Structure
 
 ```
 katalon-project/
 ├── api/                          # REST API (Node.js + Express)
-│   ├── server.js                 # Main server with CRUD endpoints
-│   ├── database.js               # SQLite database setup
-│   └── package.json              # API dependencies
-├── kafka/                        # Kafka producer/consumer
+│   ├── server.js                 # API server with request logging
+│   ├── database.js               # SQLite database + sample data
+│   └── package.json
+├── kafka/                        # Kafka producer/consumer (Node.js)
 │   ├── producer.js               # Sends messages to Kafka
-│   └── consumer.js               # Receives messages from Kafka
-├── Katalon/                      # Katalon test project
+│   ├── consumer.js               # Receives messages from Kafka
+│   └── consumed_messages.json
+├── Katalon/test/                 # Katalon Studio project
 │   ├── Test Cases/
-│   │   ├── REST_API_Producer/    # API producer tests
-│   │   ├── REST_API_Consumer/    # API consumer tests
-│   │   └── Kafka_Consumer/       # Kafka consumer tests
-│   └── Test Suites/
-│       └── MainTestSuite.robot   # Complete test suite
+│   │   ├── REST_API_Producer/    # Create/Update products
+│   │   ├── REST_API_Consumer/    # Read products
+│   │   └── Kafka_Consumer/       # Kafka integration
+│   ├── Test Suites/
+│   │   └── MainTestSuite
+│   ├── Scripts/                  # Groovy test scripts
+│   └── Object Repository/
+│       └── REST API/             # API request objects
 ├── docker-compose.yml            # Kafka Docker setup
-└── README.md                     # This file
+└── README.md
 ```
 
-## Quick Start
+## Setup Instructions
 
 ### Prerequisites
+- Java 17+
+- Node.js 18+
+- Docker
+- Katalon Studio
 
-- Java 17+ (for Katalon)
-- Node.js 18+ (for API)
-- Docker (for Kafka)
-- Katalon Studio (for running tests)
-
-### Step 1: Start Kafka
-
+### 1. Start Kafka
 ```bash
-cd katalon-project
+cd D:\_ajeng\katalon
 docker-compose up -d
-docker ps
 ```
 
-### Step 2: Install API Dependencies
-
+### 2. Install & Start REST API
 ```bash
-cd api
+cd D:\_ajeng\katalon\api
 npm install
-```
-
-### Step 3: Start REST API
-
-```bash
-cd api
 npm start
 ```
 
-API will run on http://localhost:3000
+### 3. Open Katalon Studio
+1. File → Open Project
+2. Select `D:\_ajeng\katalon\Katalon\test`
+3. Right-click project → Refresh
 
-### Step 4: Test API Manually
-
-```bash
-curl http://localhost:3000/api/products
-
-curl -X POST http://localhost:3000/api/products -H "Content-Type: application/json" -d '{"name":"AJENG Test Product","price":50000,"category":"Test","stock":10}'
-
-# cmd
-curl -X POST http://localhost:3000/api/products -H "Content-Type: application/json" -d "{\"name\":\"AJENG Test Product\",\"price\":50000,\"category\":\"Test\",\"stock\":10}"
-
-curl http://localhost:3000/api/products/1
-```
+### 4. Create Test Suite (if not exists)
+1. Right-click Test Suites → New → Test Suite
+2. Name: MainTestSuite
+3. Add these test cases:
+   - REST_API_Producer/Create_Product
+   - REST_API_Consumer/Read_Products
+   - Kafka_Consumer/Kafka_Consumer_Test
+4. Click Run ▶️
 
 ## API Endpoints
 
@@ -76,86 +69,74 @@ curl http://localhost:3000/api/products/1
 |--------|----------|-------------|
 | GET | /api/products | List all products |
 | GET | /api/products/:id | Get product by ID |
-| POST | /api/products | Create new product |
-| PUT | /api/products/:id | Update product |
-| DELETE | /api/products/:id | Delete product |
+| POST | /api/products | Create product (triggers Kafka event) |
+| PUT | /api/products/:id | Update product (triggers Kafka event) |
+| DELETE | /api/products/:id | Delete product (triggers Kafka event) |
 | GET | /api/health | Health check |
 
-## Running Katalon Tests
+## Test Cases
 
-### Option 1: Katalon Studio (GUI)
+### REST API Producer (Create_Product)
+- Health Check
+- Create new product via POST
+- Create multiple products
 
-1. Open Katalon Studio
-2. File > Import > Katalon Project
-3. Select the Katalon folder
-4. Open Test Suites > MainTestSuite
-5. Click Run button
+### REST API Consumer (Read_Products)
+- Get all products
+- Get product by ID
+- Handle 404 for non-existent product
+- Verify data structure
 
-### Option 2: Command Line
+### Kafka Consumer (Kafka_Consumer_Test)
+- Create product via API (triggers Kafka event)
+- Verify API is running
+- End-to-end: Create → Verify → Update
+
+## Manual Testing (curl)
 
 ```bash
-katalonc -projectPath="path/to/Katalon" -testSuitePath="Test Suites/MainTestSuite" -mode=console
+# Get all products
+curl http://localhost:3000/api/products
+
+# Create product
+curl -X POST http://localhost:3000/api/products -H "Content-Type: application/json" -d "{\"name\":\"Test\",\"price\":50000,\"category\":\"Test\"}"
+
+# Get product by ID
+curl http://localhost:3000/api/products/1
 ```
 
-## Kafka Testing
-
-### Test Producer (Standalone)
+## Test Kafka Separately
 
 ```bash
-cd kafka
+cd D:\_ajeng\katalon\kafka
+
+# Send test messages
 node producer.js
-```
 
-### Test Consumer (Standalone)
-
-```bash
-cd kafka
+# Listen for messages
 node consumer.js
 ```
 
-## Test Cases Overview
-
-### REST API Producer Tests
-- TC_01: Create new product
-- TC_02: Create multiple products
-- TC_03: Update existing product
-- TC_04: Delete product
-
-### REST API Consumer Tests
-- TC_01: Get all products
-- TC_02: Get product by ID
-- TC_03: Handle non-existent product
-- TC_04: Verify data integrity
-- TC_05: Filter by category
-
-### Kafka Consumer Tests
-- TC_01: API to Kafka flow
-- TC_02: Direct Kafka producer
-- TC_03: Consumer start/stop
-- TC_04: End-to-end flow
-
 ## Troubleshooting
 
-### Kafka not starting
+### Tests fail with empty body
+- Check Create Product request object has correct header:
+  - Name: Content-Type (no leading space!)
+  - Value: application/json
+
+### Kafka not working
 ```bash
+docker ps | grep kafka
 docker-compose logs kafka
-docker-compose down
-docker-compose up -d
 ```
 
 ### API not responding
 ```bash
-netstat -ano | findstr :3000
-taskkill /PID <process_id> /F
+curl http://localhost:3000/api/health
 ```
 
-### Database errors
-- SQLite database is created automatically in api/products.db
-- Delete the file to reset: rm api/products.db
-
-## Notes
-
-- Database: SQLite (auto-created, no setup needed)
-- Kafka: Runs in Docker (port 9092)
-- API: Express.js on port 3000
-- Events: API sends Kafka events on product create/update/delete
+## Tech Stack
+- **API:** Express.js + SQLite (better-sqlite3)
+- **Kafka:** Apache Kafka via Docker (port 9092)
+- **Kafka Client:** kafkajs
+- **Testing:** Katalon Studio (Groovy scripts)
